@@ -1,0 +1,35 @@
+Step 1: Feature detection (SIFT / ORB / AKAZE)
+                        ↓
+Step 2: Feature matching (descriptor matching across image pairs)
+                        ↓
+Step 3: Ratio test + cross-check filtering (remove ambiguous matches)
+                        ↓
+Step 4: RANSAC geometric verification (estimate F / E, reject outliers)
+                        ↓
+Step 5: Choose best image pair (highest inliers, best baseline)
+                        ↓
+Step 6: Estimate Fundamental matrix (F) with normalized 8-point algorithm
+                        ↓
+Step 7: Convert F → Essential matrix (E = Kᵀ F K)
+                        ↓
+Step 8: Decompose E → candidate (R, t) pairs
+                        ↓
+Step 9: Cheirality check (select correct R, t using positive depth constraint)
+                        ↓
+Step 10: Triangulate initial sparse 3D points (first reconstruction seed)
+                        ↓
+Step 11: Build feature tracks (link same features across multiple images)
+                        ↓
+Step 12: Incremental SfM (add next image)
+                    
+  Step 12.1: Find 2D–3D correspondences
+                    
+  Step 12.2: Solve PnP (estimate new camera pose)
+                    
+  Step 12.3: Triangulate new points with existing views
+                        ↓
+Step 13: Bundle Adjustment (global optimization of cameras + 3D points)
+                        ↓
+Step 14: Sparse 3D point cloud refinement (final SfM output)
+                        ↓
+Step 15: (Optional) Multi-view stereo / dense reconstruction (COLMAP-style extension)
