@@ -22,6 +22,6 @@
 │   ├── disparity_sad_ssd_ncc.py
 │   ├── depth_map.py
 │   └── results/
-└── sfm_pipeline/        ← what you're starting now
+└── sfm_pipeline/  
     ├── incremental_sfm.py
     └── results/
