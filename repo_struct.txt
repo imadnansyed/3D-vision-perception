@@ -1,4 +1,4 @@
-3d-vision-perception-portfolio/
+3d-vision-perception/
 ├── README.md
 ├── module1_camera_calibration/
 │   ├── calibrate.py
