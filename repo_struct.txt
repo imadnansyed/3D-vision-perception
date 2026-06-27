@@ -1,27 +1,25 @@
 3d-vision-perception/
 ├── README.md
-├── module1_camera_calibration/
-│   ├── calibrate.py
-│   └── results/  (sample images, error metrics)
-├── module2_epipolar_geometry/
-│   ├── fundamental_matrix.py
-│   ├── essential_matrix.py
-│   └── results/  (epipolar line visualizations)
-├── module3_pose_estimation/
-│   ├── pnp_dlt.py
-│   ├── ransac.py
-│   └── results/
-├── module4_triangulation/
-│   ├── linear_triangulation.py
-│   ├── optimal_triangulation.py
-│   └── results/
-├── module5_bundle_adjustment/
-│   ├── bundle_adjustment.py
-│   └── results/  (before/after reprojection error plots)
-├── module6_stereo_vision/
-│   ├── disparity_sad_ssd_ncc.py
-│   ├── depth_map.py
-│   └── results/
-└── sfm_pipeline/        ← what you're starting now
-    ├── incremental_sfm.py
-    └── results/
+│
+├── features/
+│   ├── image_loader.py => loads images and return list of dicts of images data
+│   └── feature_extractor  => extracts features (keypoints, descriptors)
+│   ├── feature_set.py => dataclass for storing features
+│   └── readme.md
+│
+├── matching/
+│   ├── pair_generator.py => returns logic computed pairs of images 
+│   ├── matcher.py => matches the features using flann matcher
+│   └── ratio_test => Lowe Ratio test
+│   ├── geometric_verification.py => dataclass for storing features
+│   └── match_set => dataclass for storing matches
+│
+├── sfm/
+│   ├── initial_pair_selection.py  => here we select the initial pair based on the max inliers
+│   ├── essential_matrix.py => here we compute the E matrix
+│   ├── pose_recovery.py => we recover the initial pose from 4 poses decomposed from E
+│   ├── initialization.py => 
+│   ├── projection_matrix.py => computes project matrix
+│   ├── triangulator.py => triangulate all points
+│   └── reconstruction.py => reconstructs the scenes
+│
