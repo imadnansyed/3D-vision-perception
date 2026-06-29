@@ -105,31 +105,11 @@ Triangulate New Points
 Merge Existing Tracks
         │
         ▼
-Bundle Adjustment
-        │
-        ▼
-Remove Outliers
-        │
-        ▼
 Repeat Until All Images Registered
         │
         ▼
 ====================================================
 PHASE 6 : Final Output
 ====================================================
-        │
-        ▼
-Optimized Camera Poses
-        │
-        ▼
+
 Sparse Point Cloud
-        │
-        ▼
-(Optional)
-Dense Reconstruction (MVS)
-        │
-        ▼
-Mesh Generation
-        │
-        ▼
-Texture Mapping
