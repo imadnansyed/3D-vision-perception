@@ -1,5 +1,5 @@
 3d-vision-perception/
-├── README.md
+├── Readme.md
 │
 ├── features/
 │   ├── image_loader.py => loads images and return list of dicts of images data
