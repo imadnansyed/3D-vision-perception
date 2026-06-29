@@ -30,24 +30,27 @@ class DecomposeP:
     def get_camera_matrices():
         data = loadmat('sfm\dino.mat')    
         P = data["P"]
+        print(P.shape)
 
         camera_matrices = []
 
-        for i in range(P.shape[1]):
+        for i in range(0, P.shape[1]):
             Pi = P[0, i]      # 3x4 projection matrix
 
             # Decompose
             K, R, t, C = DecomposeP.decompose_projection_matrix(Pi)
 
             camera = {
-                "id": i,
-                "P": None,
-                "K": K,
-                "R": None,
-                "t": None,
-                "C": None
-            }
+                        "id": i,
+                        "P": Pi,
+                        "K": K,
+                        "R": R,
+                        "t": t,
+                        "C": C
+                    }
             
             camera_matrices.append(camera)
+            
+            print(len(camera_matrices))
             
         return camera_matrices

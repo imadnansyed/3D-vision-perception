@@ -13,7 +13,7 @@ class ImageLoader:
         
         images = []
         
-        for idx, image_path in enumerate(image_paths):
+        for idx, image_path in enumerate(image_paths, start = 0):
             
             image = cv2.imread(str(image_path))
             

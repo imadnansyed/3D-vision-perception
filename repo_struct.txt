@@ -15,11 +15,18 @@
 │   └── match_set => dataclass for storing matches
 │
 ├── sfm/
+│   ├── correspondence_finder.py => finds correspondences among images
+│   ├── decompose_p.py => K extracted is in ground truth coordinate system but will use for execution
 │   ├── initial_pair_selection.py  => here we select the initial pair based on the max inliers
 │   ├── essential_matrix.py => here we compute the E matrix
 │   ├── pose_recovery.py => we recover the initial pose from 4 poses decomposed from E
-│   ├── initialization.py => 
 │   ├── projection_matrix.py => computes project matrix
 │   ├── triangulator.py => triangulate all points
+│   ├── incremental_sfm.py => full implementation of incremental sfm without BA
+│   ├── initialization.py => reconstruction of initial pair
+│   ├── next_image_selector.py => select next best image for reconstruction
+│   ├── pnp_solver.py => recover pose for new camera
+│   ├── track_builder.py => build tracks
+│   ├── track.py => dataclass for track
 │   └── reconstruction.py => reconstructs the scenes
 │
